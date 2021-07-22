@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package LoginModule;
+package SignupModule;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,8 +19,8 @@ import java.io.*;
  *
  * @author iamsm
  */
-public class LoginController extends HttpServlet {
-    LoginDAO dao = new LoginDAO();
+public class SignupController extends HttpServlet {
+    SignupDAO dao = new SignupDAO();
     /**
      
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -33,15 +33,16 @@ public class LoginController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String Name = request.getParameter("name");
         String email = request.getParameter("email");
         String pass = request.getParameter("pass");
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
             
       
-        if(dao.checkCred(email, pass))
+        if(dao.signupUser(Name,email, pass))
         {
             HttpSession session = request.getSession();
             session.setAttribute("email",email);
@@ -52,7 +53,7 @@ public class LoginController extends HttpServlet {
         {
             
              out.println("not Logged in");
-         response.sendRedirect("index.html");
+         response.sendRedirect("signup.html");
          
         }
         out.close();

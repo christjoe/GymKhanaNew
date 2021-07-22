@@ -1,3 +1,11 @@
+<%-- 
+    Document   : partners
+    Created on : 22 Jul, 2021, 7:25:31 PM
+    Author     : iamsm
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
   <head>
     <style>
@@ -69,7 +77,17 @@
     </style>
   </head>
   <body>
-      
+      <% 
+           //To prevent caching secure webpages
+            response.setHeader("Cache-Control","no-cache, no-store, must-revalidate"); //HTTP 1.1
+            response.setHeader("pragma", "no-cache");  // for HTTP 1.0
+            response.setHeader("Expires","0");    //for proxy servers
+          //To make it a secure webpage
+            if(session.getAttribute("email") == null)
+            {
+                response.sendRedirect("login.html");
+            }
+        %>
     <div class="sidebar">
       <a class="active" href="existpartners.html" target="plink">Your Partners</a>
       <a href="requests.html" target="plink">Requests</a>

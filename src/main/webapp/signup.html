@@ -79,32 +79,29 @@ span.sgnup {
 </div>
 <br><br>
 
-<form>
+<form action = "signup" method = "POST">
   <div class="imgcontainer">
     <img src="images/avatar.png" class="avatar">
   </div>
 
   <div class="container">
 
-    <label><b>First Name</b></label>
-    <input type="text" placeholder="Enter First Name" id="fname" required><br> <div id="fnameres" style="color: red;"></div>
+    <label><b>Name</b></label>
+    <input type="text" placeholder="Enter Name" name = "name" id="name" required><br> <div id="nameres" style="color: red;" onkeypress="check_valid()"></div>
 
-    <label><b>Last Name</b></label>
-    <input type="text" placeholder="Enter Last Name" id="lname" required><br> <div id="lnameres" style="color: red;"></div>
 
     <label><b>Email</b></label>
-    <input type="email" placeholder="Enter Email id" id="email" required><br> <div id="emres" style="color: red;"></div>
+    <input type="email" placeholder="Enter Email id" id="email" required name = "email"><br> <div id="emres" style="color: red;" onclick="check_valid()"></div>
 
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" id="uname" required>
+    
 
     <label for="psw"><b>Enter Password</b></label>
-    <input type="password" placeholder="Enter Password" id="psw1" required>
+    <input type="password" placeholder="Enter Password" id="psw1" name ="pass" required onclick="check_valid()">
 
     <label for="psw"><b>Re-Enter Password</b></label>
-    <input type="password" placeholder="Enter Password" id="psw2" required><br> <div id="pass1" style="color: red;"></div> <div id="pass2" style="color: red;"></div> 
+    <input type="password" placeholder="Enter Password" id="psw2" required onclick="check_valid()"><br> <div id="pass1" style="color: red;"></div> <div id="pass2" style="color: red;"></div> 
         
-    <button type="submit" class="sgnup" onclick="check_valid()">Sign Up</button>
+    <button type="submit" class="sgnup" >Sign Up</button>
     <div id="comp" style="color: rgb(52, 255, 52);"></div>
     
   </div>
@@ -117,8 +114,7 @@ span.sgnup {
 
 <script>
 function check_valid(){
-  var first = document.getElementById("fname").value;
-  var last = document.getElementById("lname").value;
+  var name = document.getElementById("name").value;
   var mail = document.getElementById("email").value;
   var pas1 = document.getElementById("psw1").value;
   var pas2 = document.getElementById("psw2").value;
@@ -128,17 +124,12 @@ function check_valid(){
 
   if(hasNumber.test(first) == true || format.test(first)==true)
   {
-    document.getElementById("fnameres").innerHTML = "*Name should contain only alphabets";
+    document.getElementById("nameres").innerHTML = "*Name should contain only alphabets";
     flag=1;
   }
   else{flag=0;}
 
-  if(hasNumber.test(last) == true || format.test(last)==true)
-  {
-    document.getElementById("lnameres").innerHTML = "*Name should contain only alphabets";
-    flag=1;
-  }
-  else{flag=0;}
+  
 
   for(i=0;i<=mail.length;i++)
   {
