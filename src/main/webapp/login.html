@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GymKhana/Login</title>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+.my-header h1 { 
+        display: inline;
+      }
+      .my-header span { 
+        float: right;
+      }
+      .my-header a{
+        float: right;
+      }
+
+form {border: 3px solid #3c8ddd75; padding : 5%;}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #1E90FF;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #1E90FF;
+}
+
+.imgcontainer {
+  text-align: center;
+}
+
+img.avatar {
+  width: 15%;
+  border-radius: 15%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+.lgn{
+  width: 20%;
+}
+
+</style>
+</head>
+<body>
+
+  <div class="my-header">
+    <img src="images/logo.png" width="50" height="50" style="border-radius: 50%;"> <h1>Login</h1>
+</div>
+<br><br>
+<form>
+  <div class="imgcontainer">
+    <img src="images/avatar.png" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" id="user" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" id="psw" required> <br><div id="passres" style="color: red;"></div>
+        
+    <button type="submit" class="lgn" onclick="check_valid()">Login</button>
+    
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+   <a href="home.html"> <button type="button" class="cancelbtn">Cancel</button> </a>
+
+  </div>
+</form>
+
+<script>
+function check_valid(){
+
+  var pass = document.getElementById("psw").value;
+  var hasNumber = /\d/ , flag=0;
+
+  if(hasNumber.test(pass)==false)
+  {
+   document.getElementById("passres").innerHTML = "*Invalid Password*"; 
+   flag=1;
+  }
+  else{flag=0;}
+
+}
+</script>
+
+</body>
+</html>

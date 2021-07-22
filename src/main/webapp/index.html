@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GYM KHANA</title>
+    <style>
+      .my-header h1 { 
+        display: inline;
+      }
+      .my-header span { 
+        float: right;
+      }
+      .my-header a{
+        float: right;
+      }
+      .sec1{
+        padding-top: 5%;
+        background-color: rgb(94, 184, 245); 
+        background-color: rgba(94, 184, 245, 0.6); 
+        color: white;
+        font-weight: bold;
+        width: 50%;
+      }
+
+      section{ 
+        background-image: url('images/jog.png'); 
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 40%;
+        padding-left: 35%;
+        padding-top: 5%;
+      }
+      
+      nav{
+        background-image: url('images/plan.png');
+        background-repeat: no-repeat;
+        background-size: 110%;
+        float: left;
+        width: 20%;
+        padding: 5%;
+      }
+
+      nav h2{
+        padding: 10%;
+        background-color: rgb(94, 184, 245); 
+        background-color: rgba(94, 184, 245, 0.6); 
+        color: white;
+      }
+
+      .sec3{
+        background-image: url("images/meet.png");
+        padding-left: 30%;
+        background-size: 110%;
+        float: right;
+        width: 20%;
+        padding: 5%;
+      }
+
+      .sec3 h2{
+        background-color: rgb(94, 184, 245); 
+        background-color: rgba(94, 184, 245, 0.6); 
+        color: white;
+        font-weight: bold;
+        padding: 5%;
+      }
+      
+      #desc{
+        float: inline-start;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        border-radius: 30%;
+        align-items: center;
+        width: 20%;
+        height: 50%;
+        padding-left: 40%;
+        padding-right: 20%;
+        padding-top: 5%;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="my-header">
+      <img src="images/logo.png" width="50" height="50" style="border-radius: 50%;"> <h1>GymKhana</h1>
+      <a href="signup.html"><button>Sign Up</button></a> <span>|</span> <a href="login.html"><button>Login</button></a>
+  </div>
+
+  <hr width= 100% color="#1E90FF">
+  
+  <section id="mainsec" onclick="login_for_info()">
+    <h3 align="center" class="sec1">FIND AND MEET NEW PEOPLE!</h3>
+    <p align="center" class="sec1">Start your journey in meeting different people to workout or play various sports with.
+      <br>Find people of similar
+      interests quickly and hit the gym in no time! </p>
+  </section>
+
+  <nav id="plan" onclick="act_desc()">
+    <h2 align="center">PLAN ACTIVITIES</h2>
+  </nav>
+
+  <div class="sec3" id="meet" onclick="meet_desc()">
+    <h2 align="center">MEET NEW PEOPLE</h2>
+  </div>
+
+  <div id="desc"></div>
+
+  <script>
+    document.getElementById("mainsec").onmouseover = function() {mouseOvermain()};
+    document.getElementById("mainsec").onmouseout = function() {mouseOutmain()};
+
+    document.getElementById("plan").onmouseover = function() {mouseOverplan()};
+    document.getElementById("plan").onmouseout = function() {mouseOutplan()};
+
+    document.getElementById("meet").onmouseover = function() {mouseOvermeet()};
+    document.getElementById("meet").onmouseout = function() {mouseOutmeet()};
+
+    function mouseOvermain(){
+      document.getElementById("mainsec").style.backgroundSize = "50%";
+    }
+    function mouseOutmain(){
+      document.getElementById("mainsec").style.backgroundSize = "40%";
+    }
+
+    function mouseOverplan(){
+      document.getElementById("plan").style.backgroundSize = "130%";
+    }
+    function mouseOutplan(){
+      document.getElementById("plan").style.backgroundSize = "110%";
+    }
+
+    function mouseOvermeet(){
+      document.getElementById("meet").style.backgroundSize = "130%";
+    }
+    function mouseOutmeet(){
+      document.getElementById("meet").style.backgroundSize = "110%";
+    }
+    
+    function login_for_info(){
+      alert("Login for more information!");
+    }
+
+    function act_desc(){
+      document.getElementById("desc").innerHTML = "Start planning various activities like\n" + "playing a sport or going to the gym.\n" +"Schedule them according to your convenience too";
+    }
+
+    function meet_desc(){
+      document.getElementById("desc").innerHTML = "Search for people with similar interests." +"\n"+ "Meet with them and make plans for sports or gym";
+    }
+  </script>
+  </body>
+</html>
