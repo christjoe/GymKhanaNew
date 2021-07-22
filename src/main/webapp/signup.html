@@ -79,29 +79,32 @@ span.sgnup {
 </div>
 <br><br>
 
-<form action = "signup" method = "POST">
+<form name="RegForm" onsubmit="return check_valid()">
   <div class="imgcontainer">
     <img src="images/avatar.png" class="avatar">
   </div>
 
   <div class="container">
 
-    <label><b>Name</b></label>
-    <input type="text" placeholder="Enter Name" name = "name" id="name" required><br> <div id="nameres" style="color: red;" onkeypress="check_valid()"></div>
+    <label><b>First Name</b></label>
+    <input type="text" placeholder="Enter First Name" name="fname" required><br> <div id="fnameres" style="color: red;"></div>
 
+    <label><b>Last Name</b></label>
+    <input type="text" placeholder="Enter Last Name" name="lname" required><br> <div id="lnameres" style="color: red;"></div>
 
     <label><b>Email</b></label>
-    <input type="email" placeholder="Enter Email id" id="email" required name = "email"><br> <div id="emres" style="color: red;" onclick="check_valid()"></div>
+    <input type="email" placeholder="Enter Email id" name="email" required><br> <div id="emres" style="color: red;"></div>
 
-    
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required> <div id="userres" style="color: red;"></div>
 
     <label for="psw"><b>Enter Password</b></label>
-    <input type="password" placeholder="Enter Password" id="psw1" name ="pass" required onclick="check_valid()">
+    <input type="password" placeholder="Enter Password" name="psw1" required>
 
     <label for="psw"><b>Re-Enter Password</b></label>
-    <input type="password" placeholder="Enter Password" id="psw2" required onclick="check_valid()"><br> <div id="pass1" style="color: red;"></div> <div id="pass2" style="color: red;"></div> 
+    <input type="password" placeholder="Enter Password" name="psw2" required><br> <div id="pass1" style="color: red;"></div> <div id="pass2" style="color: red;"></div> 
         
-    <button type="submit" class="sgnup" >Sign Up</button>
+    <button type="submit" class="sgnup" onclick="check_valid()">Sign Up</button>
     <div id="comp" style="color: rgb(52, 255, 52);"></div>
     
   </div>
@@ -113,52 +116,58 @@ span.sgnup {
 </form>
 
 <script>
-function check_valid(){
-  var name = document.getElementById("name").value;
-  var mail = document.getElementById("email").value;
-  var pas1 = document.getElementById("psw1").value;
-  var pas2 = document.getElementById("psw2").value;
-  var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-  var i=0, hasNumber = /\d/ , flag=0, eflag=0;
+  function check_valid() {
+      var fname = document.forms["RegForm"]["fname"];
+      var lname = document.forms["RegForm"]["lname"];
+      var email = document.forms["RegForm"]["email"];
+      var user = document.forms["RegForm"]["uname"];
+      var psw1 = document.forms["RegForm"]["psw1"];
+      var psw2 = document.forms["RegForm"]["psw2"]; 
+      var hasNumber = /\d/;
+
+      if (fname.value == "" || hasNumber.test(fname.value)==true) {
+        document.getElementById("fnameres").innerHTML = "Please enter a valid name.";
+          fname.focus();
+          return false;
+      }
+
+      if (lname.value == "" || hasNumber.test(lname.value)==true) {
+        document.getElementById("lnameres").innerHTML = "Please enter a valid name.";
+          lname.focus();
+          return false;
+      }
+
+      if (user.value == "") {
+        document.getElementById("userres").innerHTML = "Please enter a username.";
+          user.focus();
+          return false;
+      }
 
 
-  if(hasNumber.test(first) == true || format.test(first)==true)
-  {
-    document.getElementById("nameres").innerHTML = "*Name should contain only alphabets";
-    flag=1;
+      if (email.value == "") {
+        document.getElementById("emres").innerHTML = "Please enter a valid email id.";
+          email.focus();
+          return false;
+      }
+
+
+      if (psw1.value == "" || hasNumber.test(psw1.value)==false) {
+        document.getElementById("pass1").innerHTML = "Please enter a valid password with atleast one number";
+          psw1.focus();
+          return false;
+      }
+
+      if (psw1.value != psw2.value) {
+        document.getElementById("pass1").innerHTML = "Please enter a valid password with atleast one number";
+          psw2.focus();
+          return false;
+      }
+
+
+      return true;
   }
-  else{flag=0;}
-
-  
-
-  for(i=0;i<=mail.length;i++)
-  {
-    if(mail[i]=="@"){eflag=0;}
-    else{eflag=1;}
-  } 
-
-  if(eflag==1){document.getElementById("emres").innerHTML = "*Invalid Email Id";}
-
-  if(mail.substring(mail.length - 4) != ".com") {document.getElementById("emres").innerHTML = "*Invalid Email Id";}
-  
-  if(hasNumber.test(pas1)==false)
-  {
-   document.getElementById("pass1").innerHTML = "*Password should contain atleast one number*"; 
-   flag=1;
-  }
-  else{flag=0;}
-
-  if(pas1!=pas2)
-  {
-    document.getElementById("pass2").innerHTML = "*Passwords dont match!! Re-enter again*";
-    flag=1;
-  }
-  else{flag=0;}
-
-  
-}
-
 </script>
+
 
 </body>
 </html>

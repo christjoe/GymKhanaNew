@@ -76,19 +76,19 @@ span.psw {
     <img src="images/logo.png" width="50" height="50" style="border-radius: 50%;"> <h1>Login</h1>
 </div>
 <br><br>
-<form action = "login" method="GET">
+<form>
   <div class="imgcontainer">
     <img src="images/avatar.png" class="avatar">
   </div>
 
   <div class="container">
-    <label for="uname"><b>email</b></label>
-    <input type="text" placeholder="Enter email" name="email" id="email" required><br><div id="emailres" style="color: red;"></div>
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" id="user" required> <br><div id="userres" style="color: red;"></div>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" id="pass" name = "pass" required> 
+    <input type="password" placeholder="Enter Password" id="psw" required> <br><div id="passres" style="color: red;"></div>
         
-    <button type="submit" class="lgn" onclick="check_valid()">Login</button>
+    <button type="submit" class="lgn" onsubmit="check_valid()">Login</button>
     
   </div>
 
@@ -99,19 +99,28 @@ span.psw {
 </form>
 
 <script>
-function check_valid(){
+  function check_valid() {
+    
+      var user = document.forms["RegForm"]["uname"];
+      var psw1 = document.forms["RegForm"]["psw1"]; 
+      var hasNumber = /\d/;
 
-  var email = document.getElementById("email").value;
-  var isEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})$/ ;
 
-  if(!email.match(isEmail))
-  {
-   document.getElementById("emailres").innerHTML = "re-check mail id"; 
-   
+      if (user.value == "") {
+        document.getElementById("userres").innerHTML = "Please enter a username.";
+          user.focus();
+          return false;
+      }
+
+      if (psw.value == "" || hasNumber.test(psw.value)==false) {
+        document.getElementById("pass1").innerHTML = "Please enter a valid password with atleast one number";
+          psw.focus();
+          return false;
+      }
+
+
+      return true;
   }
- 
-
-}
 </script>
 
 </body>
