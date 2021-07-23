@@ -37,7 +37,7 @@ public class SignupController extends HttpServlet {
             throws ServletException, IOException {
         String Name = request.getParameter("name");
         String email = request.getParameter("email");
-        String pass = request.getParameter("pass");
+        String pass = request.getParameter("psw1");
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
             
