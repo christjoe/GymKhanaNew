@@ -102,8 +102,8 @@ span.psw {
   function check_valid() {
     
     var email = document.forms["RegForm"]["email"];
-      var psw1 = document.forms["RegForm"]["pass"]; 
-      var hasNumber = /\d/;
+       
+     
 
 
       if (email.value == "") {
@@ -112,13 +112,7 @@ span.psw {
           return false;
       }
 
-      if (pass.value == "" || hasNumber.test(pass.value)==false) {
-        document.getElementById("passres").innerHTML = "Please enter a valid password with atleast one number";
-          psw.focus();
-          return false;
-      }
-
-
+    
       return true;
   }
 </script>
