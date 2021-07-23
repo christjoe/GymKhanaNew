@@ -76,17 +76,17 @@ span.psw {
     <img src="images/logo.png" width="50" height="50" style="border-radius: 50%;"> <h1>Login</h1>
 </div>
 <br><br>
-<form>
+<form name="RegForm" onsubmit="return check_valid()" action="login" method="POST">
   <div class="imgcontainer">
     <img src="images/avatar.png" class="avatar">
   </div>
 
   <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" id="user" required> <br><div id="userres" style="color: red;"></div>
+    <label><b>Email</b></label>
+    <input type="email" placeholder="Enter Email id" name="email" required><br> <div id="emres" style="color: red;"></div>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" id="psw" required> <br><div id="passres" style="color: red;"></div>
+    <input type="password" placeholder="Enter Password" id="pass" required> <br><div id="passres" style="color: red;"></div>
         
     <button type="submit" class="lgn" onsubmit="check_valid()">Login</button>
     
@@ -101,18 +101,18 @@ span.psw {
 <script>
   function check_valid() {
     
-      var user = document.forms["RegForm"]["uname"];
-      var psw1 = document.forms["RegForm"]["psw1"]; 
+    var email = document.forms["RegForm"]["email"];
+      var psw1 = document.forms["RegForm"]["pass"]; 
       var hasNumber = /\d/;
 
 
-      if (user.value == "") {
-        document.getElementById("userres").innerHTML = "Please enter a username.";
-          user.focus();
+      if (email.value == "") {
+        document.getElementById("emres").innerHTML = "Please enter a valid email id.";
+          email.focus();
           return false;
       }
 
-      if (psw.value == "" || hasNumber.test(psw.value)==false) {
+      if (pass.value == "" || hasNumber.test(pass.value)==false) {
         document.getElementById("pass1").innerHTML = "Please enter a valid password with atleast one number";
           psw.focus();
           return false;

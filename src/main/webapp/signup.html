@@ -79,24 +79,20 @@ span.sgnup {
 </div>
 <br><br>
 
-<form name="RegForm" onsubmit="return check_valid()">
+<form name="RegForm" onsubmit="return check_valid()" action="signup" method="POST">
   <div class="imgcontainer">
     <img src="images/avatar.png" class="avatar">
   </div>
 
   <div class="container">
 
-    <label><b>First Name</b></label>
-    <input type="text" placeholder="Enter First Name" name="fname" required><br> <div id="fnameres" style="color: red;"></div>
+    <label><b>Name</b></label>
+    <input type="text" placeholder="Enter First Name" name="name" required><br> <div id="nameres" style="color: red;"></div>
 
-    <label><b>Last Name</b></label>
-    <input type="text" placeholder="Enter Last Name" name="lname" required><br> <div id="lnameres" style="color: red;"></div>
 
     <label><b>Email</b></label>
     <input type="email" placeholder="Enter Email id" name="email" required><br> <div id="emres" style="color: red;"></div>
 
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required> <div id="userres" style="color: red;"></div>
 
     <label for="psw"><b>Enter Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw1" required>
@@ -117,31 +113,18 @@ span.sgnup {
 
 <script>
   function check_valid() {
-      var fname = document.forms["RegForm"]["fname"];
-      var lname = document.forms["RegForm"]["lname"];
+      var name = document.forms["RegForm"]["name"];
       var email = document.forms["RegForm"]["email"];
-      var user = document.forms["RegForm"]["uname"];
       var psw1 = document.forms["RegForm"]["psw1"];
       var psw2 = document.forms["RegForm"]["psw2"]; 
       var hasNumber = /\d/;
 
-      if (fname.value == "" || hasNumber.test(fname.value)==true) {
-        document.getElementById("fnameres").innerHTML = "Please enter a valid name.";
+      if (name.value == "" || hasNumber.test(name.value)==true) {
+        document.getElementById("nameres").innerHTML = "Please enter a valid name.";
           fname.focus();
           return false;
       }
 
-      if (lname.value == "" || hasNumber.test(lname.value)==true) {
-        document.getElementById("lnameres").innerHTML = "Please enter a valid name.";
-          lname.focus();
-          return false;
-      }
-
-      if (user.value == "") {
-        document.getElementById("userres").innerHTML = "Please enter a username.";
-          user.focus();
-          return false;
-      }
 
 
       if (email.value == "") {
@@ -158,7 +141,7 @@ span.sgnup {
       }
 
       if (psw1.value != psw2.value) {
-        document.getElementById("pass1").innerHTML = "Please enter a valid password with atleast one number";
+        document.getElementById("pass1").innerHTML = "Passwords not matching";
           psw2.focus();
           return false;
       }
