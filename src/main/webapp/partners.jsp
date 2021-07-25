@@ -91,6 +91,7 @@
     <div class="sidebar">
       <a class="active" href="existpartners.html" target="plink">Your Partners</a>
       <a href="requests.html" target="plink">Requests</a>
+       <a href="searchPartners"  target="_blank">Search Partners</a>
     </div> <br><br>
 
     <div class="topnav">
