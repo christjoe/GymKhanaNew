@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package LoginModule;
+package PartnerModule.SearchPartners;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,8 +19,9 @@ import java.io.*;
  *
  * @author iamsm
  */
-public class LoginController extends HttpServlet {
-    LoginDAO dao = new LoginDAO();
+public class SearchPartnersController extends HttpServlet {
+    SearchPartnersDAO dao = new SearchPartnersDAO();
+    
     /**
      
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -33,28 +34,20 @@ public class LoginController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String email = request.getParameter("email");
-        String pass = request.getParameter("pass");
+        
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
             
       
-        if(dao.checkCred(email, pass))
-        {
-            HttpSession session = request.getSession();
-            session.setAttribute("email",email);
-            response.sendRedirect("frames.jsp");
-            System.out.println("Logged in");
-        }
-        else
-        {
-            
-             out.println("not Logged in");
-         response.sendRedirect("login.html");
-         
-        }
+        UserModel[] SuggUsers = dao.getUsers().clone();
+        
+        
+        request.setAttribute("UserList",SuggUsers);
+        RequestDispatcher rd = request.getRequestDispatcher("SearchPartners.jsp");
+        rd.forward(request,response);
+        
         out.close();
     /**
      * Handles the HTTP <code>POST</code> method.
