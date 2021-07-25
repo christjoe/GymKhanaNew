@@ -86,7 +86,7 @@ span.psw {
     <input type="email" placeholder="Enter Email id" name="email" required><br> <div id="emres" style="color: red;"></div>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" id="pass" name = "pass" required> <br><div id="passres" style="color: red;"></div>
+    <input type="password" placeholder="Enter Password" id="pass" required> <br><div id="passres" style="color: red;"></div>
         
     <button type="submit" class="lgn" onsubmit="check_valid()">Login</button>
     
@@ -102,17 +102,24 @@ span.psw {
   function check_valid() {
     
     var email = document.forms["RegForm"]["email"];
-       
-     
+      var psw1 = document.forms["RegForm"]["pass"]; 
+      var hasNumber = /\d/;
 
 
       if (email.value == "") {
         document.getElementById("emres").innerHTML = "Please enter a valid email id.";
           email.focus();
           return false;
+          event.preventDefault();
       }
 
-    
+      if (psw1.value == "" || hasNumber.test(psw1.value)==false) {
+        document.getElementById("passres").innerHTML = "Please enter a valid password with atleast one number";
+          psw1.focus();
+          return false;
+      }
+
+
       return true;
   }
 </script>

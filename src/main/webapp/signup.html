@@ -117,13 +117,15 @@ span.sgnup {
       var email = document.forms["RegForm"]["email"];
       var psw1 = document.forms["RegForm"]["psw1"];
       var psw2 = document.forms["RegForm"]["psw2"]; 
-      var hasNumber = /\d/;
+      var hasNumber = /\d/, flag=0;
 
       if (name.value == "" || hasNumber.test(name.value)==true) {
         document.getElementById("nameres").innerHTML = "Please enter a valid name.";
-          fname.focus();
+          name.focus();
           return false;
+  
       }
+  
 
 
 
@@ -131,20 +133,25 @@ span.sgnup {
         document.getElementById("emres").innerHTML = "Please enter a valid email id.";
           email.focus();
           return false;
+    
       }
+    
 
 
       if (psw1.value == "" || hasNumber.test(psw1.value)==false) {
         document.getElementById("pass1").innerHTML = "Please enter a valid password with atleast one number";
           psw1.focus();
           return false;
+    
       }
+     
 
       if (psw1.value != psw2.value) {
         document.getElementById("pass1").innerHTML = "Passwords not matching";
-          psw2.focus();
+  
           return false;
       }
+      
 
 
       return true;
