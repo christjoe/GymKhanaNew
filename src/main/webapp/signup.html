@@ -122,8 +122,9 @@ span.sgnup {
       if (name.value == "" || hasNumber.test(name.value)==true) {
         document.getElementById("nameres").innerHTML = "Please enter a valid name.";
           name.focus();
+          
           return false;
-  
+          event.preventDefault();
       }
   
 
@@ -133,7 +134,7 @@ span.sgnup {
         document.getElementById("emres").innerHTML = "Please enter a valid email id.";
           email.focus();
           return false;
-    
+
       }
     
 
