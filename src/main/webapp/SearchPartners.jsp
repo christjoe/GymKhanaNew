@@ -26,8 +26,11 @@
   padding-right: 2%;
 }
         </style>
+        <script src ="scripts/reqPartner.js"></script>
     </head>
     <body>
+        <form action="reqPartner" method ="POST" id="reqForm">
+            <input type ="hidden" name ="requested" value = "">
         <% 
            //To prevent caching secure webpages
             response.setHeader("Cache-Control","no-cache, no-store, must-revalidate"); //HTTP 1.1
@@ -46,6 +49,7 @@
             {
                 
             pageContext.setAttribute("Name",  SuggUsers[i].getName());
+            pageContext.setAttribute("ID",  SuggUsers[i].getID());
         %>
         <!-- <p> Name : ${Name} </p> -->
         <div class="card">
@@ -53,9 +57,12 @@
       <div class="container">
         <h4><b>${Name}</b></h4>
         <p><u>About me</u><br>Architect<br>Football/Swimming</p>
+        <input type ="button" onclick ="addValsub(${ID})" name = "${ID}" class ="test" value = "Send request"> 
+      <!--  <p id ="testOP"> <script> document.getElementById("testOP").innerHTML += document.getElementById("test").name;</script></p> -->
       </div>
     </div>
         <% }
         %>
-    </body>
+        </form>
+        </body>
 </html>

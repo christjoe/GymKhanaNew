@@ -16,6 +16,10 @@
         <servlet-name>SearchPartnersController</servlet-name>
         <servlet-class>PartnerModule.SearchPartners.SearchPartnersController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>reqPartnerController</servlet-name>
+        <servlet-class>PartnerModule.RequestPartners.reqPartnerController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>SearchPartnersController</servlet-name>
         <url-pattern>/searchPartners</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>reqPartnerController</servlet-name>
+        <url-pattern>/reqPartner</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

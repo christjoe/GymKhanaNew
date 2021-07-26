@@ -31,7 +31,7 @@ public class SearchPartnersDAO {
             
             while(rs.next() && i<10)
             {
-              Users[i] = new UserModel(rs.getString("Name"));
+              Users[i] = new UserModel(rs.getInt("ID"),rs.getString("Name"));
               i++;
             }            
         } catch(Exception e) {
