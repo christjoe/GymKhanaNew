@@ -86,14 +86,14 @@ span.psw {
     <input type="email" placeholder="Enter Email id" name="email" required><br> <div id="emres" style="color: red;"></div>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" id="pass" required> <br><div id="passres" style="color: red;"></div>
+    <input type="password" placeholder="Enter Password" id="pass" required name = "pass" > <br><div id="passres" style="color: red;"></div>
         
     <button type="submit" class="lgn" onsubmit="check_valid()">Login</button>
     
   </div>
 
   <div class="container" style="background-color:#f1f1f1">
-   <a href="home.html"> <button type="button" class="cancelbtn">Cancel</button> </a>
+   <a href="index.html"> <button type="button" class="cancelbtn">Cancel</button> </a>
 
   </div>
 </form>
@@ -113,12 +113,12 @@ span.psw {
           
       }
 
-      if (psw1.value == "" || hasNumber.test(psw1.value)==false) {
+     /* if (psw1.value == "" || hasNumber.test(psw1.value)==false) {
         document.getElementById("passres").innerHTML = "Please enter a valid password with atleast one number";
           psw1.focus();
           return false;
       }
-
+*/
 
       return true;
   }

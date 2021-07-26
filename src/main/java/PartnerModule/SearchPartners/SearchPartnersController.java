@@ -46,7 +46,10 @@ public class SearchPartnersController extends HttpServlet {
         
         request.setAttribute("UserList",SuggUsers);
         RequestDispatcher rd = request.getRequestDispatcher("SearchPartners.jsp");
-        rd.forward(request,response);
+        if(rd != null)
+        {
+            rd.forward(request,response);
+        }
         
         out.close();
     /**
