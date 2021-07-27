@@ -18,6 +18,9 @@
             .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
+  background: linear-gradient(to right, #d6724e, #f5551a);
+        width: 80%;
+        height: 40%;
 }
 
 .card:hover {
@@ -59,8 +62,8 @@
       <img src="images/meet.png" alt="Avatar" style="width: 20%; height: 30%; padding-left: 2%; padding-bottom: 2%; padding-top: 2%; ">
       <div class="container">
         <h4><b>${Name}</b></h4>
-        <p><u>About me</u><br>Architect<br>Football/Swimming</p>
-        <input type ="button" onclick ="addValsub(${ID})" name = "${ID}" class ="test" value = "Send request"> 
+        <p><b><u>About me</u><br>Architect<br>Football/Swimming</b></p>
+        <input type ="button" onclick ="addValsub(${ID})" name = "${ID}" class ="test" value = "Send request">   <a href="planning.html"><input type="button" value="Plan Activity"></a>
       <!--  <p id ="testOP"> <script> document.getElementById("testOP").innerHTML += document.getElementById("test").name;</script></p> -->
       </div>
     </div>

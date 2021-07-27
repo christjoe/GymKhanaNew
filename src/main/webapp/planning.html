@@ -1,42 +1,38 @@
 <html>
-  <head></head>
-  <body>
-    <html>
   <head>
     <style>
       body{
         padding-left: 20%;
       }
+
+      label{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      input[type = text], input[type = date], input[type = time]{
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+
     </style>
   </head>
   <body>
     <div class="plan">
-      <h3>Start planning activites with your partners!</h3><br>
+      <h3>Plan an activity with John Doe !</h3><br>
 
-      <ol type="1">
-        <li><select>
-              <option>Gym</option>
-              <option>Sports</option>
-              <option>Break Day</option>
-            </select>
-          <input type="date">
-        
-        </li><br>
 
-        <li><select>
-          <option>Gym</option>
-          <option>Sports</option>
-          <option>Break Day</option>
-        </select>
-        <input type="date">
-    
-        </li><br>
-
-      </ol>
+      <form action="test.html">
+        <label>What would you like to do?</label> <input type="text" placeholder="Enter activity"> <br><br>
+        <label>Choose a date: </label> <input type="date"> <br><br>
+        <label>Choose time: </label> <input type="time" id="testtime"> <br><br>
+        <input type="button" value="Submit">
       <br>
-      <button type="submit">Confirm</button>
+      <br>
+      </form>
     </div>
-  </body>
-</html>
   </body>
 </html>
