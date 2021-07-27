@@ -11,13 +11,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.*;
 /**
  *
  * @author iamsm
  */
 public class reqPartnerController extends HttpServlet {
-
+    reqPartnerDAO dao = new reqPartnerDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -41,8 +41,16 @@ public class reqPartnerController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int ID = Integer.parseInt(request.getParameter("requested"));
-        System.out.println("request sent to " + ID);
+        int ReqedID = Integer.parseInt(request.getParameter("requested"));
+        System.out.println("request sent to " + ReqedID);
+        
+        HttpSession session = request.getSession();
+        String ReqorEmail = (String)session.getAttribute("email");
+        
+        System.out.println("Request from " + ReqorEmail);
+        
+        dao.createRel(ReqorEmail, ReqedID);
+        
     }
 
   
