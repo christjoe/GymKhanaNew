@@ -29,11 +29,11 @@
   padding-right: 2%;
 }
         </style>
-        <script src ="scripts/reqRespond.js"></script>
+        <script src ="scripts/respondReq.js"></script>
     </head>
     <body>
-        <p>requests</p>
-        <form action="reqRespond" method ="POST" id="resForm">
+        <form action="respondReq" method ="POST" id="resForm">
+            <input type ="hidden" name ="responseTo" value = "">
             <input type ="hidden" name ="response" value = "">
         <% 
            //To prevent caching secure webpages
@@ -62,8 +62,8 @@
       <div class="container">
         <h4><b>${Name}</b></h4>
         <p><u>About me</u><br>Architect<br>Football/Swimming</p>
-        <input type ="button" onclick ="addValsub(${ID})" name = "${ID}" class ="test" value = "Ignore">
-        <input type ="button" onclick ="addValsub(${ID})" name = "${ID}" class ="test" value = "Accept">
+        <input type ="button" onclick ="ignoreReq(${ID})"  value = "Ignore">
+        <input type ="button" onclick ="acceptReq(${ID})"  value = "Accept">
       <!--  <p id ="testOP"> <script> document.getElementById("testOP").innerHTML += document.getElementById("test").name;</script></p> -->
       </div>
     </div>

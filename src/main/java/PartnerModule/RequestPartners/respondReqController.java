@@ -11,13 +11,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpSession;
+
 /**
  *
  * @author iamsm
  */
-public class reqPartnerController extends HttpServlet {
-    reqPartnerDAO dao = new reqPartnerDAO();
+public class respondReqController extends HttpServlet {
+    respondReqDAO dao = new respondReqDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -27,38 +28,27 @@ public class reqPartnerController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-   
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-  
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         response.setContentType("text/html");
         PrintWriter pout = response.getWriter(); 
         
-        int ReqedID = Integer.parseInt(request.getParameter("requested"));
-        System.out.println("request sent to " + ReqedID);
+        int ReqorID = Integer.parseInt(request.getParameter("responseTo"));
+        String res = request.getParameter("response");
+        System.out.println("responded to " + ReqorID);
         
         HttpSession session = request.getSession();
-        String ReqorEmail = (String)session.getAttribute("email");
+        String ReqedEmail = (String)session.getAttribute("email");
         
-        System.out.println("Request from " + ReqorEmail);
-        
-        dao.createRel(ReqorEmail, ReqedID);
+        System.out.println("Responded by " + ReqedEmail);
+        System.out.println(res);
+        dao.updateRel(ReqedEmail, ReqorID, res);
        
         
-        response.sendRedirect("searchPartners");
+        response.sendRedirect("viewRequests");
         pout.close();
     }
 
-  
+    
 }
