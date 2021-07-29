@@ -20,7 +20,7 @@
         transition: 0.3s;
         width: 80%;
         height: 40%;
-        padding-bottom: 4%;
+        padding-bottom: 5%;
 }
 
 .card:hover {

@@ -37,17 +37,17 @@
       }
 
       .header a:hover {
-        background-color: #98cbff;
+        background-color: #f78359c7;
         color: black;
       } 
 
        .header-right a.active {
-        background-color: #1E90FF;
+        background-color: #f78359c7;
         color: white;
       }
 
        .header-right a:hover:not(.active) {
-        background-color: #98cbff;
+        background-color: #f78359c7;
         color: white;
       } 
       
@@ -56,10 +56,6 @@
     display: none;
 }
 
-#profileImage
-{
-    cursor: pointer;
-}
 
 #profile-container {
     width: 50px;
@@ -108,18 +104,14 @@
 }
 /* Dropdown Button */
 .dropbtn {
-  background-color: #3498DB;
-  color: white;
+  transform: translate(14%,-100%);
+  background-color: transparent;
   padding: 16px;
   font-size: 16px;
   border: none;
   cursor: pointer;
 }
 
-/* Dropdown button on hover & focus */
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
-}
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
@@ -138,12 +130,17 @@
   overflow : hidden;
 }
 
+.profileImage{
+  transform: translate(-30%,-30%);
+}
+
 /* Links inside the dropdown */
 .dropdown-content a {
   color: black;
-  padding: 12px 16px;
+  padding: 5px 6px;
   text-decoration: none;
   display: block;
+  transform: translateX(-20%);
 }
 
 /* Change color of dropdown links on hover */
