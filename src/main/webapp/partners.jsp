@@ -103,7 +103,7 @@
       </div>
     </div>
 
-    <iframe src="existpartners.html" width="100%" height="640px" name="plink"></iframe>
+    <iframe src="viewPartners.jsp" width="100%" height="640px" name="plink"></iframe>
 
     </div>
   </body>
