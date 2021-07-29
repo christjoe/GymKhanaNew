@@ -16,15 +16,16 @@
                 padding-left : 20%;
             }
             .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  background: linear-gradient(to right, #d6724e, #f5551a);
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
         width: 80%;
         height: 40%;
+        padding-bottom: 4%;
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      background: linear-gradient(to right, #d6724e, #f5551a);
 }
 
 .container {
