@@ -20,7 +20,7 @@ import java.sql.PreparedStatement;
  * @author iamsm
  */
 public class LoginDAO {
-    String url = "jdbc:mysql://localhost:3307/Gymkhana?autoReconnect=true&useSSL=false";
+    String url = "jdbc:mysql://localhost:3307/Gymkhana?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false";
     String username = "root";
     String password = "sqlrocks123";
     String sql = "SELECT * FROM User WHERE email = ? AND password = ?";

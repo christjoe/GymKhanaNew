@@ -65,7 +65,7 @@
       <div class="container">
         <h4><b>${Name}</b></h4>
         <p><b><u>About me</u><br>Architect<br>Football/Swimming</b></p>
-        <input type ="button" onclick ="addValsub(${ID})" name = "${ID}" class ="test" value = "Send request">   <a href="planning.html"><input type="button" value="Plan Activity"></a>
+        <input type ="button" onclick ="addValsub(${ID})" name = "${ID}" class ="test" value = "Send request">   
       <!--  <p id ="testOP"> <script> document.getElementById("testOP").innerHTML += document.getElementById("test").name;</script></p> -->
       </div>
     </div>
