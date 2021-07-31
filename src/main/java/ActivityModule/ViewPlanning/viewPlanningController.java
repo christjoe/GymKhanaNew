@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ActivityModule.PlanActivity;
+package ActivityModule.ViewPlanning;
 
 import ActivityModule.ActivityModel;
 import ActivityModule.UserModel;
@@ -17,13 +17,14 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 
+
 /**
  *
  * @author iamsm
  */
-public class sendPlanController extends HttpServlet {
+public class viewPlanningController extends HttpServlet {
+    viewPlanningDAO dao = new viewPlanningDAO();
     
-    sendPlanDAO dao = new sendPlanDAO();
     /**
      
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -36,24 +37,34 @@ public class sendPlanController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String planWithName = request.getParameter("planWithName");
-        int planWithID = Integer.parseInt(request.getParameter("planWithID"));
-        UserModel planWith = new UserModel(planWithID,planWithName);
-        
-        ActivityModel Activity = new ActivityModel(request.getParameter("a_name"),request.getParameter("a_date"),request.getParameter("a_time"));
-        
-        System.out.println(planWith.getID() + " " + planWith.getName());
         
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
             
-        System.out.println(Activity.getName() + " " + Activity.getDate() + " " + Activity.getTime());
+      
         HttpSession session = request.getSession();
-        String ReqorMail = (String)session.getAttribute("email");
+        String UserEmail = (String)session.getAttribute("email");
+        System.out.println(UserEmail);
+        UserModel[] UPlanRec = dao.getUPlanRec(UserEmail).clone();
+        UserModel[] UPlanSent = dao.getUPlanSent(UserEmail).clone();
+        ActivityModel[] APlanRec = dao.getAPlanRec(UserEmail).clone(); 
+        ActivityModel[] APlanSent = dao.getAPlanSent(UserEmail).clone();
         
-        dao.createAct(ReqorMail, planWith, Activity);
+        request.setAttribute("UPlanRec",UPlanRec);
+        request.setAttribute("UPlanSent",UPlanSent);
+        request.setAttribute("APlanRec",APlanRec);        
+        request.setAttribute("APlanSent",APlanSent);
+        
+        RequestDispatcher rd = request.getRequestDispatcher("viewPlan.jsp");
+        if(rd != null)
+        {
+            System.out.println("FORWARDED");
+            rd.forward(request,response);
+        }
+        else
+            System.out.println("RD is NULL");       
         out.close();
     /**
      * Handles the HTTP <code>POST</code> method.

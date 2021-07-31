@@ -62,7 +62,7 @@
         %>
     <div class="sidebar">
       <a class="active" href="confirmed.html" target="alink">Confirmed</a>
-      <a href="planning.html" target="alink">Planning</a>
+      <a href="viewPlan" target="alink">Planning</a>
     </div> 
 
     <iframe src="confirmed.html" width="100%" height="640px" name="alink"></iframe>

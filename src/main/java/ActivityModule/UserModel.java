@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ActivityModule.PlanActivity;
+package ActivityModule;
 
 
 
@@ -14,7 +14,7 @@ package ActivityModule.PlanActivity;
 public class UserModel {
     int ID;
     String name;
-    UserModel(int id,String uname)
+    public UserModel(int id,String uname)
     {
         ID = id;
         name = uname;

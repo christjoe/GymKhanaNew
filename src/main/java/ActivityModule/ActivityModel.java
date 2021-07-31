@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ActivityModule.PlanActivity;
+package ActivityModule;
 
 /**
  *
@@ -13,7 +13,7 @@ public class ActivityModel {
     String a_name;
     String a_date;
     String a_time;
-     ActivityModel(String name,String date,String time)
+    public ActivityModel(String name,String date,String time)
     {
         a_name = name;
         a_date = date;
