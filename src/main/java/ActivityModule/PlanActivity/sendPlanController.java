@@ -22,7 +22,7 @@ import java.io.*;
  */
 public class sendPlanController extends HttpServlet {
     
-    
+    sendPlanDAO dao = new sendPlanDAO();
     /**
      
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -48,8 +48,11 @@ public class sendPlanController extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
             
-      
-     
+        System.out.println(Activity.getName() + " " + Activity.getDate() + " " + Activity.getTime());
+        HttpSession session = request.getSession();
+        String ReqorMail = (String)session.getAttribute("email");
+        
+        dao.createAct(ReqorMail, planWith, Activity);
         out.close();
     /**
      * Handles the HTTP <code>POST</code> method.
