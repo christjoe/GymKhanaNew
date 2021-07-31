@@ -56,6 +56,10 @@
     display: none;
 }
 
+#profileImage
+{
+    cursor: pointer;
+}
 
 #profile-container {
     width: 50px;
@@ -106,7 +110,6 @@
 .dropbtn {
   transform: translate(14%,-100%);
   background-color: transparent;
-  padding: 16px;
   font-size: 16px;
   border: none;
   cursor: pointer;
@@ -121,32 +124,27 @@
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-  display: block;
-  position: absolute;
+  display: none;
+  transform: translate(-50px,30px);
   background-color: #f1f1f1;
   min-width: 80px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  
+  overflow : hidden;
 }
 
 .profileImage{
-  transform: translate(-30%,-30%);
+  transform: translate(10%,10%);
 }
 
-/* Links inside the dropdown */
 .dropdown-content a {
   color: black;
-  padding: 5px 6px;
   text-decoration: none;
   display: block;
   transform: translateX(-20%);
 }
 
-/* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #ddd}
 
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
    </style>
      <script src = "scripts/userpg.js">
