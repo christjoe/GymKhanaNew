@@ -5,6 +5,8 @@
  */
 package ActivityModule.RespondPlan;
 
+import ActivityModule.RespondPlan.ActivityModel;
+import ActivityModule.UserModel;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -43,10 +45,11 @@ public class respondPlanController extends HttpServlet {
         
         System.out.println("Responded by " + ReqedEmail);
         System.out.println(res);
-        dao.updateRel(ReqedEmail, ReqorID, res);
-       
         
-        response.sendRedirect("viewPlan.jsp");
+        int A_ID = Integer.parseInt(request.getParameter("A_ID"));
+        dao.updateAct(ReqedEmail, ReqorID, res, A_ID);
+        
+        response.sendRedirect("viewPlan");
         pout.close();
     }
 

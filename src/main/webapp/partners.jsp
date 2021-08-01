@@ -94,15 +94,7 @@
        <a href="searchPartners"  target="plink">Search Partners</a>
     </div> <br><br>
 
-    <div class="topnav">
-      <div class="search-container">
-        <form>
-          <input type="text" placeholder="Search.." name="search">
-          <button type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-
+    
     <iframe src="viewPartners" width="100%" height="640px" name="plink"></iframe>
 
     </div>

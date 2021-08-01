@@ -5,7 +5,7 @@
  */
 package ActivityModule.ViewPlanning;
 
-import ActivityModule.ActivityModel;
+import ActivityModule.RespondPlan.ActivityModel;
 import ActivityModule.UserModel;
 import java.io.IOException;
 import java.io.PrintWriter;

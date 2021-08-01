@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PartnerModule.SearchPartners;
+package ActivityModule.ViewConfirmed;
 
+import ActivityModule.RespondPlan.ActivityModel;
+import ActivityModule.UserModel;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,12 +17,13 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 
+
 /**
  *
  * @author iamsm
  */
-public class SearchPartnersController extends HttpServlet {
-    SearchPartnersDAO dao = new SearchPartnersDAO();
+public class viewConfirmedController extends HttpServlet {
+    viewConfirmedDAO dao = new viewConfirmedDAO();
     
     /**
      
@@ -38,26 +41,27 @@ public class SearchPartnersController extends HttpServlet {
             throws ServletException, IOException {
         
         response.setContentType("text/html");
-        PrintWriter pout = response.getWriter();
+        PrintWriter out = response.getWriter();
             
-              
-       HttpSession session = request.getSession();
+      
+        HttpSession session = request.getSession();
         String UserEmail = (String)session.getAttribute("email");
         System.out.println(UserEmail);
+        UserModel[] UActCon = dao.getUActCon(UserEmail).clone();
+        ActivityModel[] AActCon = dao.getAActCon(UserEmail).clone(); 
         
-        UserModel[] SuggUsers = dao.getUsers(UserEmail).clone();
+        request.setAttribute("UActCon", UActCon);
+        request.setAttribute("AActCon",AActCon);
         
-        request.setAttribute("UserList",SuggUsers);
-        RequestDispatcher rd = request.getRequestDispatcher("SearchPartners.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("viewConfirmed.jsp");
         if(rd != null)
         {
+            System.out.println("FORWARDED");
             rd.forward(request,response);
         }
-        else {
-            System.out.println("rd is null");
-        }
-        
-        pout.close();
+        else
+            System.out.println("RD is NULL");       
+        out.close();
     /**
      * Handles the HTTP <code>POST</code> method.
      *

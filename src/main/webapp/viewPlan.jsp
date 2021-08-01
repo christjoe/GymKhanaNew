@@ -5,7 +5,7 @@
 --%>
 
 
-<%@page contentType="text/html" pageEncoding="UTF-8" import = "ActivityModule.UserModel,ActivityModule.ActivityModel" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" import = "ActivityModule.UserModel,ActivityModule.RespondPlan.ActivityModel" %>
 
 <!DOCTYPE html>
 <html>
@@ -45,15 +45,16 @@ div .buttons {
     float:left;
 }
         </style>
-        <script src ="scripts/respondReq.js"></script>
+        <script src ="scripts/respondPlan.js"></script>
     </head>
     <body>
         <h3>PLANS RECEIVED</h3>
         <hr>
-        <form action="respondReq" method ="POST" id="resForm">
+        <form action="respondPlan" method ="POST" id="planForm">
             <input type ="hidden" name ="responseTo" value = "">
             <input type ="hidden" name ="response" value = "">
-        <% 
+            <input type ="hidden" name ="A_ID" value = "">   
+         <% 
            //To prevent caching secure webpages
             response.setHeader("Cache-Control","no-cache, no-store, must-revalidate"); //HTTP 1.1
             response.setHeader("pragma", "no-cache");  // for HTTP 1.0
@@ -75,6 +76,7 @@ div .buttons {
                 
             pageContext.setAttribute("U_Name",  ReqUsers[i].getName());
             pageContext.setAttribute("U_ID",  ReqUsers[i].getID());
+            pageContext.setAttribute("A_ID",  PlanRec[i].getID());
             pageContext.setAttribute("A_Name",  PlanRec[i].getName());
             pageContext.setAttribute("A_Date",  PlanRec[i].getDate());
             pageContext.setAttribute("A_Time",  PlanRec[i].getTime());
@@ -93,8 +95,8 @@ div .buttons {
            <p>Time : ${A_Time}</p>
         </div>
         <div class ="buttons">
-        <input type ="button" onclick ="ignoreReq(${ID})"  value = "Ignore">
-        <input type ="button" onclick ="acceptReq(${ID})"  value = "Accept">
+        <input type ="button" onclick ="ignoreReq(${U_ID},${A_ID})"  value = "Ignore">
+        <input type ="button" onclick ="acceptReq(${U_ID},${A_ID})"  value = "Accept">
       <!--  <p id ="testOP"> <script> document.getElementById("testOP").innerHTML += document.getElementById("test").name;</script></p> -->
         </div>
       </div>

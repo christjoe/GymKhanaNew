@@ -20,7 +20,7 @@ public class viewPartnersDAO {
     String username = "root";
     String password = "sqlrocks123";
     String IDQuery = "SELECT * from User WHERE email = ?";
-    String PartQuery = "select ID,Name FROM User,User_relations WHERE rel_status = 'accepted' AND (ID = ID1 OR ID = ID2) AND (ID != ?) AND (ID2 =? OR ID1 = ?);";
+    String PartQuery = "select ID,Name FROM User,User_relations WHERE rel_status = 'accepted' AND (ID = ID1 OR ID = ID2) AND (ID != ?) AND (ID2 =? OR ID1 = ?)";
     UserModel[] Partners;
     int UserID;
     public UserModel[] getPartners(String UserEmail)

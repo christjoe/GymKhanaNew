@@ -72,6 +72,7 @@
     -o-border-radius: 50%;
     border-radius: 50%;
     margin-right: 20px;
+    margin-top : 20px;
 }
 
 #profile-container img  {
@@ -129,7 +130,7 @@
   background-color: #f1f1f1;
   min-width: 80px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  overflow : hidden;
+  
 }
 
 .profileImage{
@@ -180,7 +181,7 @@
             }
         %>
     <div class="my-header">
-      <img src="images/logo.png" width="50" height="50" style="border-radius: 50%;"> <h1>Profile</h1>
+      <img src="images/logo.png" width="50" height="50" style="border-radius: 50%;"> <h1>Welcome to the club</h1>
      
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <div id="profile-container">
@@ -190,16 +191,16 @@
         <button onclick="profMenu()" class="dropbtn"> <img id="profileImage" src="images/avatar.png"></button>
         <!--  <span class="tooltiptext">Click to change profile pic<img id="profileImage" src="images/avatar.png"le photo</span> -->
          
-        <div id="myDropdown" class="dropdown-content">
-            <form action = "logout" method = "GET">    
-         <a href="#" onclick = "this.parentNode.submit()">Logout</a>
-             </form>
-         </div>
+       <!-- <div id="myDropdown" class="dropdown-content"> -->
+            
+         <!--</div> -->
          
         </div>
      </div>
    <!--   <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture> -->
-
+<form action = "logout" method = "GET">    
+         <a href="#" onclick = "this.parentNode.submit()">Logout</a>
+             </form>
     </div>
 
   <hr width= 100% color="#1E90FF">

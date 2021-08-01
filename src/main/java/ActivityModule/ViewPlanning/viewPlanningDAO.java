@@ -9,7 +9,7 @@ package ActivityModule.ViewPlanning;
  *
  * @author iamsm
  */
-import ActivityModule.ActivityModel;
+import ActivityModule.RespondPlan.ActivityModel;
 import ActivityModule.UserModel;
 
 import java.sql.Connection;
@@ -24,8 +24,8 @@ public class viewPlanningDAO {
     String IDQuery = "SELECT * from User WHERE email = ?";
     String UPlanSentQuery = "select ID,Name FROM User,Activities WHERE A_Status = 'planning' AND ID = ID2 AND ID1 =?";
     String UPlanRecQuery = "select ID,Name FROM User,Activities WHERE A_Status = 'planning' AND ID = ID1 AND ID2 =?";
-    String APlanSentQuery = "SELECT A_Name,DATE_FORMAT(A_Date,'%d %m %Y') AS A_Date,DATE_FORMAT(A_Time,'%H %i') AS A_Time FROM Activities WHERE ID1 = ?";
-    String APlanRecQuery = "SELECT A_Name,DATE_FORMAT(A_Date,'%d %m %Y') AS A_Date,DATE_FORMAT(A_Time,'%H %i') AS A_Time FROM Activities WHERE ID2 = ?";    
+    String APlanSentQuery = "SELECT A_ID,A_Name,DATE_FORMAT(A_Date,'%d %m %Y') AS A_Date,DATE_FORMAT(A_Time,'%H %i') AS A_Time FROM Activities WHERE ID1 = ? AND A_Status = 'planning'";
+    String APlanRecQuery = "SELECT A_ID,A_Name,DATE_FORMAT(A_Date,'%d %m %Y') AS A_Date,DATE_FORMAT(A_Time,'%H %i') AS A_Time FROM Activities WHERE ID2 = ? AND A_Status = 'planning'";    
     UserModel[] Users;
     ActivityModel[] Activity;
     int UserID;
@@ -133,7 +133,7 @@ public class viewPlanningDAO {
         rs.beforeFirst();
         while(rs.next() && i<ListLength)
             {
-              Activity[i] = new ActivityModel(rs.getString("A_Name"),rs.getString("A_Date"),rs.getString("A_Time"));
+              Activity[i] = new ActivityModel(rs.getInt("A_ID"),rs.getString("A_Name"),rs.getString("A_Date"),rs.getString("A_Time"));
               i++;
             }
         con.close();
@@ -165,7 +165,7 @@ public class viewPlanningDAO {
         rs.beforeFirst();
         while(rs.next() && i<ListLength)
             {
-              Activity[i] = new ActivityModel(rs.getString("A_Name"),rs.getString("A_Date"),rs.getString("A_Time"));
+              Activity[i] = new ActivityModel(rs.getInt("A_ID"),rs.getString("A_Name"),rs.getString("A_Date"),rs.getString("A_Time"));
               i++;
             }
         con.close();

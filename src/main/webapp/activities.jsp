@@ -61,10 +61,10 @@
             }
         %>
     <div class="sidebar">
-      <a class="active" href="confirmed.html" target="alink">Confirmed</a>
+      <a class="active" href="viewConfirmed" target="alink">Confirmed</a>
       <a href="viewPlan" target="alink">Planning</a>
     </div> 
 
-    <iframe src="confirmed.html" width="100%" height="640px" name="alink"></iframe>
+    <iframe src="viewConfirmed" width="100%" height="640px" name="alink"></iframe>
   </body>
 </html>
