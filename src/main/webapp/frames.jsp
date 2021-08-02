@@ -194,13 +194,13 @@
 
   <div class="header">
     <div class="header-right">
-      <a href="activities.html" target="mainlink">Activities</a>
-      <a class="act" href="partners.html" target="mainlink">Partners</a>
+      <a href="activities.jsp" target="mainlink">Activities</a>
+      <a class="act" href="partners.jsp" target="mainlink">Partners</a>
     </div>
   </div>
 
 
-   <iframe src="activities.html" width="100%" height="640px" name="mainlink"></iframe>
+   <iframe src="activities.jsp" width="100%" height="640px" name="mainlink"></iframe>
    
 
    <script>

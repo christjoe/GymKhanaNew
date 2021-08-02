@@ -21,48 +21,75 @@
             .card {
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
         transition: 0.3s;
-        width: 120%;
-        height: 40%;
+        overflow : auto;
         padding-bottom: 4%;
       }
 
       .card:hover {
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
         background: linear-gradient(to right, #d6724e, #f5551a);
+        overflow : hidden;
       }
 
       h3{
-        transform: translate(30px,50px);
+      /*  transform: translate(30px,50px); */
       }
-
-      .container {
-        float: right;
-        padding-right: 2%;
+      #aname {
+          clear:both;
+          margin-left : 50%;
+          margin-top : 1%;
       }
-       
-      .calendar{
-        transform: translate(-350px,-30px);
+      #cardimg {
+          
+      width: 20%; height: 85%; padding-left: 2%; padding-bottom: 2%; padding-top: 2%; 
+      float : left;
+    margin : 2.5%;
       }
-
-      .time{
-        font-size: 20px;
-        transform: translate(-160px,-200px);
-        font-family: 'Orbitron', sans-serif;
-      }
-
-      .date{
+      
+       .date{
         font-family: Impact, Charcoal, sans-serif;
         font-size: 20px;
-        transform: translate(-370px,-90px);
+   /*     transform: translate(-370px,-90px); */
+        float : left;
+        
+        background-image : url("images/calendar.jpg");
+       width : 169px;
+       height : 166px;
+       margin : 2.5%;
+       }
+      
+      #dateval{
+         margin-top : 50%;
+         margin-left:  25%;
+      }
+      .time{
+        font-size: 20px;
+/*        transform: translate(-160px,-200px); */
+        font-family: 'Orbitron', sans-serif;
+        float:left;
+        background-image : url("images/clock.jpg");
+        background-size : cover;
+        border : 1px solid black;
+       width : 212px;
+       height : 113px;
+       margin : 2.5%;
       }
 
-      .clock{
-        transform: translate(-170px,-150px);
+      
+
+      #timeval{
+/*        transform: translate(-170px,-150px); */
+         margin-top : 20%;
+         margin-left : 30%;
+      }
+      #uname {
+          margin-top : 10%;
+          margin-left : 10%;
       }
         </style>
     </head>
     <body>
-        <h3>Confirmed Activities</h3>
+        <h2>Confirmed Activities</h2>
         <hr> 
          <% 
            //To prevent caching secure webpages
@@ -91,16 +118,21 @@
             pageContext.setAttribute("A_Date",  ActCon[i].getDate());
             pageContext.setAttribute("A_Time",  ActCon[i].getTime());
         %>
-        <!-- <p> Name : ${Name} </p> -->
-        <div class="card">
-      <img src="images/meet.png" style="width: 20%; height: 85%; padding-left: 2%; padding-bottom: 2%; padding-top: 2%; ">
-      <div class="container">
-        <h3><b>${U_Name}}</b></h3>
-        <img class="calendar" src="images/calendar.jpg" style="width: 70%; height: 70%; padding-bottom: 2%; padding-top: 2%;">
-        <div align="center" class="date">${A_Date}</div>
-        <img class="clock" src="images/clock.jpg" style="width: 100%; height: 50%; padding-bottom: 2%; padding-top: 2%;">
-        <div class="time">${A_Time}</div>
-      </div>
+   
+      <div class="card">
+          <div id ="aname">${A_Name}</div>
+      <img src="images/meet.png" id = "cardimg">
+      
+        <div class="date">
+            
+            <div id = "dateval">${A_Date}</div>
+        </div>
+        
+        <div class="time">
+            <div id = "timeval">${A_Time}</div>
+        </div>
+          <h3 id = "uname"><b>${U_Name}</b></h3>
+  
     </div>
         <% }
         %>
