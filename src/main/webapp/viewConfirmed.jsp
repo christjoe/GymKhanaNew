@@ -11,39 +11,54 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
         <title>View Confirmed Plans</title>
         <style>
             body{
                 padding-left : 20%;
             }
+            
             .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  padding-bottom: 5%;
-  width : 80%;
-  height : 40%;
-}
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+        transition: 0.3s;
+        width: 120%;
+        height: 40%;
+        padding-bottom: 4%;
+      }
 
-.card:hover {
-  box-shadow: 0 64px 64px 0 rgba(0,0,0,0.2);
-      background: linear-gradient(to right, #d6724e, #f5551a);
-      width : 90%;
-}
+      .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        background: linear-gradient(to right, #d6724e, #f5551a);
+      }
 
+      h3{
+        transform: translate(30px,50px);
+      }
 
-.container {
-  float: right;
-  padding-right: 2%;
-}
-div .user {
-    float:left;
-}
-div .activity {
-    float:left;
-}
-div .buttons {
-    float:left;
-}
+      .container {
+        float: right;
+        padding-right: 2%;
+      }
+       
+      .calendar{
+        transform: translate(-350px,-30px);
+      }
+
+      .time{
+        font-size: 20px;
+        transform: translate(-160px,-200px);
+        font-family: 'Orbitron', sans-serif;
+      }
+
+      .date{
+        font-family: Impact, Charcoal, sans-serif;
+        font-size: 20px;
+        transform: translate(-370px,-90px);
+      }
+
+      .clock{
+        transform: translate(-170px,-150px);
+      }
         </style>
     </head>
     <body>
@@ -78,18 +93,13 @@ div .buttons {
         %>
         <!-- <p> Name : ${Name} </p> -->
         <div class="card">
-      <img src="images/meet.png" alt="Avatar" style="width: 20%; height: 30%; padding-left: 2%; padding-bottom: 2%; padding-top: 2%; ">
+      <img src="images/meet.png" style="width: 20%; height: 85%; padding-left: 2%; padding-bottom: 2%; padding-top: 2%; ">
       <div class="container">
-        <div class ="user">
-        <h4><b>${U_Name}</b></h4>
-        <p><u>About me</u><br>Architect<br>Football/Swimming</p>
-        </div>
-        <div class ="activity">
-            <h4>${A_Name}</h4>
-            <p>Date : ${A_Date}</p>
-           <p>Time : ${A_Time}</p>
-        </div>
-        
+        <h3><b>${U_Name}}</b></h3>
+        <img class="calendar" src="images/calendar.jpg" style="width: 70%; height: 70%; padding-bottom: 2%; padding-top: 2%;">
+        <div align="center" class="date">${A_Date}</div>
+        <img class="clock" src="images/clock.jpg" style="width: 100%; height: 50%; padding-bottom: 2%; padding-top: 2%;">
+        <div class="time">${A_Time}</div>
       </div>
     </div>
         <% }
