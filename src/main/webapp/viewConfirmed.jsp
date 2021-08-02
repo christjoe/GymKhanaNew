@@ -72,7 +72,7 @@
         border : 1px solid black;
        width : 212px;
        height : 113px;
-       margin : 2.5%;
+       margin : 5%;
       }
 
       
@@ -85,6 +85,11 @@
       #uname {
           margin-top : 10%;
           margin-left : 10%;
+          font-size: 25px;
+      }
+      
+      #aname{
+          font-size: 20px;
       }
         </style>
     </head>
@@ -120,7 +125,7 @@
         %>
    
       <div class="card">
-          <div id ="aname">${A_Name}</div>
+          <div id ="aname"><b>${A_Name}</b></div>
       <img src="images/meet.png" id = "cardimg">
       
         <div class="date">
