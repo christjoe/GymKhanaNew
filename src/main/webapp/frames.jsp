@@ -119,16 +119,18 @@
 .dropdown {
   position: relative;
   display: inline-block;
+  z-index: 1;
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
-  transform: translate(-50px,30px);
+  transform: translate(-30px,45px);
   background-color: #f1f1f1;
   min-width: 80px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   overflow : hidden;
+  
 }
 
 .profileImage{
@@ -140,12 +142,16 @@
   text-decoration: none;
   display: block;
   transform: translateX(-20%);
+  height: 30px;
+  padding-left: 20%;
+  padding-top: 5%;
 }
 
 .dropdown-content a:hover {background-color: #ddd}
 
 .show {display:block;}
    </style>
+
 
 
   </head>
