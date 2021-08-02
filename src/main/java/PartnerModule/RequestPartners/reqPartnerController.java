@@ -56,7 +56,7 @@ public class reqPartnerController extends HttpServlet {
         dao.createRel(ReqorEmail, ReqedID);
        
         
-        response.sendRedirect("planning.html");
+        response.sendRedirect("searchPartners");
         pout.close();
     }
 
