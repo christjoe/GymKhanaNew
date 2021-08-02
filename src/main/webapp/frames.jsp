@@ -1,10 +1,9 @@
-<%-- 
+       <%-- 
     Document   : frames.jsp
     Created on : 22 Jul, 2021, 7:20:44 PM
     Author     : iamsm
---%>
+--%>             
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -72,7 +71,6 @@
     -o-border-radius: 50%;
     border-radius: 50%;
     margin-right: 20px;
-    margin-top : 20px;
 }
 
 #profile-container img  {
@@ -130,7 +128,7 @@
   background-color: #f1f1f1;
   min-width: 80px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  
+  overflow : hidden;
 }
 
 .profileImage{
@@ -148,28 +146,11 @@
 
 .show {display:block;}
    </style>
-     <script src = "scripts/userpg.js">
- /*    $("#profileImage").click(function(e) {
-    $("#imageUpload").click();
-    });
 
-      function fasterPreview( uploader ) {
-      if ( uploader.files && uploader.files[0] ){
-          $('#profileImage').attr('src', 
-             window.URL.createObjectURL(uploader.files[0]) );
-      }
-      }
-
-       $("#imageUpload").change(function(){
-        fasterPreview( this );
-      });
-     
-  */
-   </script>
 
   </head>
   <body>
-      <% 
+     <% 
            //To prevent caching secure webpages
             response.setHeader("Cache-Control","no-cache, no-store, must-revalidate"); //HTTP 1.1
             response.setHeader("pragma", "no-cache");  // for HTTP 1.0
@@ -179,42 +160,62 @@
             {
                 response.sendRedirect("login.html");
             }
-        %>
+        %>  
     <div class="my-header">
-      <img src="images/logo.png" width="50" height="50" style="border-radius: 50%;"> <h1>Welcome to the club</h1>
+      <img src="images/logo.png" width="50" height="50" style="border-radius: 50%;"> <h1>Welcome to the Club</h1>
      
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <div id="profile-container">
         <!--  <div class="tooltip"> -->
         <div class="dropdown">
             <!-- <img id="profileImage" src="images/avatar.png"> -->
-        <button onclick="profMenu()" class="dropbtn"> <img id="profileImage" src="images/avatar.png"></button>
+            <img class="profileImage" src="images/avatar.png"><button onclick="profMenu()" class="dropbtn"> 
         <!--  <span class="tooltiptext">Click to change profile pic<img id="profileImage" src="images/avatar.png"le photo</span> -->
          
-       <!-- <div id="myDropdown" class="dropdown-content"> -->
-            
-         <!--</div> -->
+        <div id="myDropdown" class="dropdown-content">
+            <form action = "logout" method = "GET">    
+         <a href="#" onclick = "this.parentNode.submit()">Logout</a>
+             </form>
+         </div>
          
         </div>
      </div>
    <!--   <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture> -->
-<form action = "logout" method = "GET">    
-         <a href="#" onclick = "this.parentNode.submit()">Logout</a>
-             </form>
+
     </div>
 
-  <hr width= 100% color="#1E90FF">
+  <hr width= 100% color="#ff6933">
 
   <div class="header">
     <div class="header-right">
-      <a href="partners.jsp" target="mainlink">Partners</a>
-      <a class="act" href="activities.jsp" target="mainlink">Activities</a>
+      <a href="activities.html" target="mainlink">Activities</a>
+      <a class="act" href="partners.html" target="mainlink">Partners</a>
     </div>
   </div>
 
 
-   <iframe src="partners.jsp" width="100%" height="640px" name="mainlink"></iframe>
+   <iframe src="activities.html" width="100%" height="640px" name="mainlink"></iframe>
+   
 
+   <script>
+     function profMenu() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+   </script>
  
   </body>
 </html>
