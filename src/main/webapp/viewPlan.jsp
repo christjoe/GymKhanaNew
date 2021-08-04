@@ -11,39 +11,88 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
         <title>View Plans</title>
         <style>
             body{
                 padding-left : 20%;
             }
+            
             .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  padding-bottom: 5%;
-  width : 80%;
-  height : 40%;
-}
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+        transition: 0.3s;
+        overflow : auto;
+        padding-bottom: 5%;
+        padding-top: 2%;
+      }
 
-.card:hover {
-  box-shadow: 0 64px 64px 0 rgba(0,0,0,0.2);
-      background: linear-gradient(to right, #d6724e, #f5551a);
-      width : 90%;
-}
+      .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        background: linear-gradient(to right, #d6724e, #f5551a);
+        overflow : hidden;
+      }
 
+      h3{
+      /*  transform: translate(30px,50px); */
+      }
+      #aname {
+          clear:both;
+          margin-left : 50%;
+          margin-top: -20%;
+      }
+      
+       .date{
+        font-family: Impact, Charcoal, sans-serif;
+        font-size: 20px;
+   /*     transform: translate(-370px,-90px); */
+        float : left;
+        background-image : url("images/calendar.jpg");
+       width : 169px;
+       height : 166px;
+       margin-left: 30%;
+       margin-top: -7%;
+       }
+      
+      #dateval{
+         margin-top : 50%;
+         margin-left:  25%;
+      }
+      
+      .time{
+        font-size: 20px;
+/*        transform: translate(-160px,-200px); */
+        font-family: 'Orbitron', sans-serif;
+        float:left;
+        background-image : url("images/clock.jpg");
+        background-size : cover;
+        border : 1px solid black;
+       width : 212px;
+       height : 113px;
+       margin-left: 50%;
+       margin-top:-12%;
+      }
 
-.container {
-  float: right;
-  padding-right: 2%;
-}
-div .user {
-    float:left;
-}
-div .activity {
-    float:left;
-}
-div .buttons {
-    float:left;
-}
+      
+
+      #timeval{
+/*        transform: translate(-170px,-150px); */
+         margin-top : 15%;
+         margin-left : 30%;
+         font-size: 30px;
+         
+      }
+      #uname {
+          margin-left : 80%;
+          font-size: 25px;
+      }
+      
+      #aname{
+          font-size: 20px;
+      }
+      
+      .buttons{
+         padding-left: 80%;
+      }
         </style>
         <script src ="scripts/respondPlan.js"></script>
     </head>
@@ -83,24 +132,31 @@ div .buttons {
         %>
         <!-- <p> Name : ${Name} </p> -->
         <div class="card">
-      <img src="images/meet.png" alt="Avatar" style="width: 20%; height: 30%; padding-left: 2%; padding-bottom: 2%; padding-top: 2%; ">
+      <img src="images/meet.png" alt="Avatar" style="padding-left: 2%; padding-bottom: 2%; padding-top: 2%;">
       <div class="container">
         <div class ="user">
-        <h4><b>${U_Name}</b></h4>
-        <p><u>About me</u><br>Architect<br>Football/Swimming</p>
+            <h4 id="aname">${A_Name}</h4>
+        <h3 id = "uname"><b>${U_Name}</b></h3>
         </div>
         <div class ="activity">
-            <h4>${A_Name}</h4>
-            <p>Date : ${A_Date}</p>
-           <p>Time : ${A_Time}</p>
+            
+            
+            <div class="date">
+            <div id = "dateval">${A_Date}</div>
+            </div>
+            
+           <div class="time">
+            <div id = "timeval">${A_Time}</div>
+           </div>
         </div>
         <div class ="buttons">
-        <input type ="button" onclick ="ignoreReq(${U_ID},${A_ID})"  value = "Ignore">
-        <input type ="button" onclick ="acceptReq(${U_ID},${A_ID})"  value = "Accept">
+            <input type ="button" onclick ="ignoreReq(${U_ID},${A_ID})"  value = "Ignore"> 
+            <input type ="button" onclick ="acceptReq(${U_ID},${A_ID})"  value = "Accept">
       <!--  <p id ="testOP"> <script> document.getElementById("testOP").innerHTML += document.getElementById("test").name;</script></p> -->
         </div>
       </div>
     </div>
+      <br>
         <% }
         %>
         </form>
@@ -125,20 +181,25 @@ div .buttons {
         %>
          <!-- <p> Name : ${Name} </p> -->
         <div class="card">
-      <img src="images/meet.png" alt="Avatar" style="width: 20%; height: 30%; padding-left: 2%; padding-bottom: 2%; padding-top: 2%; ">
+      <img src="images/meet.png" alt="Avatar" style="padding-left: 2%; padding-bottom: 2%; padding-top: 2%;">
       <div class="container">
         <div class ="user">
-        <h4><b>${U_Name}</b></h4>
-        <p><u>About me</u><br>Architect<br>Football/Swimming</p>
+            <h4 id="aname">${A_Name}</h4>
+        <h3 id = "uname"><b>${U_Name}</b></h3>
         </div>
         <div class ="activity">
-            <h4>${A_Name}</h4>
-            <p>Date : ${A_Date}</p>
-           <p>Time : ${A_Time}</p>
+            <div class="date">
+            <div id = "dateval">${A_Date}</div>
+            </div>
+            
+           <div class="time">
+            <div id = "timeval">${A_Time}</div>
+           </div>
         </div>
       <!--  <p id ="testOP"> <script> document.getElementById("testOP").innerHTML += document.getElementById("test").name;</script></p> -->
       </div>
     </div>
+           <br>
         <% }
         %>
         </body>
