@@ -87,7 +87,7 @@ span.sgnup {
   <div class="container">
 
     <label><b>Name</b></label>
-    <input type="text" placeholder="Enter First Name" name="name" required><br> <div id="nameres" style="color: red;"></div>
+    <input type="text" placeholder="Enter Name" name="name" required><br> <div id="nameres" style="color: red;"></div>
 
 
     <label><b>Email</b></label>
@@ -117,9 +117,9 @@ span.sgnup {
       var email = document.forms["RegForm"]["email"];
       var psw1 = document.forms["RegForm"]["psw1"];
       var psw2 = document.forms["RegForm"]["psw2"]; 
-      var hasNumber = /\d/, flag=0;
+      var hasNumber = /\d/, format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
 
-      if (name.value == "" || hasNumber.test(name.value)==true) {
+      if (name.value == "" || hasNumber.test(name.value)==true || format.test(name.value)==true) {
         document.getElementById("nameres").innerHTML = "Please enter a valid name.";
           name.focus();
           
