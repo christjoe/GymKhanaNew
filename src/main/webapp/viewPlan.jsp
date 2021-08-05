@@ -21,7 +21,7 @@
             .card {
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
         transition: 0.3s;
-        overflow : auto;
+        overflow : hidden;
         padding-bottom: 5%;
         padding-top: 2%;
       }
